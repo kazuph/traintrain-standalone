@@ -268,7 +268,7 @@ def prepare_environment():
 def start():
     print(f"Launching {'API server' if '--nowebui' in sys.argv else 'Web UI'} with arguments: {shlex.join(sys.argv[1:])}")
     import traintrain.scripts.traintrain as traintrain
-    traintrain.launch(sys.argv[1:])
+    traintrain.launch()
     return
 
 def dump_sysinfo():
