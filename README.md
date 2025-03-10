@@ -1,5 +1,5 @@
 # Traintrain Standalone
-　Text-to-Image Low Rank Adaption (LoRA) training tool. Stand alone environment for sd-webui-traintrain.  
+　Text-to-Image Low Rank Adaption (LoRA) training tool. Stand alone environment for sd-webui-traintrain.
 　Stable Diffusion WebUI用のLoRA学習拡張であるsd-webui-traintrainをスタンドアロンで使用するための環境を構築します。
 
 [<img src="https://img.shields.io/badge/lang-Egnlish-red.svg?style=plastic" height="25" />](#overview)
@@ -14,16 +14,38 @@ To install, enter the directory where you want to install and run the following 
 ```
 git clone https://github.com/hako-mikan/traintrain-standalone
 ```
+
+### Windows
 After installation, double-click `webui-user.bat` to start the program. The first launch will set up the environment, which may take some time. Even if you plan to use the command-line execution, you must run `webui-user.bat` once for environment setup.
+
+### Linux / macOS
+After installation, run the following command to start the program:
+```bash
+bash webui-user.sh
+```
+The first launch will set up the environment, which may take some time. Even if you plan to use the command-line execution, you must run `webui-user.sh` once for environment setup.
 
 ## Usage
 Refer to the [TrainTrain repository](https://github.com/hako-mikan/sd-webui-traintrain) for instructions on using TrainTrain.
 In Standalone mode, models and VAEs must be specified using full paths. If you set variables like `--models-dir` in the command line, models will be selectable from a list.
 
 ## Additional Settings
+
+### Windows
 You can add command-line variables in `webui-user.bat` to specify model directories and other parameters.
 ```
 set COMMANDLINE_ARGS=--models-dir X:\StabilityMatrix\Models --branch dev
+```
+
+### Linux / macOS
+You can add command-line variables in `webui-user.sh` to specify model directories and other parameters.
+```bash
+COMMANDLINE_ARGS="--models-dir /path/to/models --branch dev"
+```
+
+Alternatively, you can pass arguments directly when running the script:
+```bash
+./webui-user.sh --server-name=0.0.0.0 --server-port=7860 --models-dir /path/to/models
 ```
 ### Command-line Variables
 
@@ -59,7 +81,7 @@ venv\Scripts\activate
 
 **Linux / macOS (bash):**
 ```bash
-source G:/StabilityMatrix/Models/venv/bin/activate
+source ./venv/bin/activate
 ```
 
 ### **Run `train_j.py`**
@@ -90,16 +112,38 @@ This repository references code from [Stable Diffusion WebUI Forge](https://gith
 ```
 git clone https://github.com/hako-mikan/traintrain-standalone
 ```
+
+### Windows
 　インストール後、`webui-user.bat`をダブルクリックすることで起動します。初回起動時は環境構築が行われるので時間がかかります。コマンドライン実行を行いたい場合でも環境構築のため`webui-user.bat`一度起動してください。
+
+### Linux / macOS
+　インストール後、以下のコマンドで起動します：
+```bash
+bash webui-user.sh
+```
+　初回起動時は環境構築が行われるので時間がかかります。コマンドライン実行を行いたい場合でも環境構築のため`webui-user.sh`を一度起動してください。
 
 ## 使い方
 　TrainTrainの使い方は[TrainTrain](https://github.com/hako-mikan/sd-webui-traintrain)のレポジトリを参照してください。
 StandAloneではモデルやVAEの指定がフルパス指定になります。コマンドライン変数で`--models-dir`などを設定している場合にはモデルリストから選ぶ形式になります。
 
 ## 追加設定
+
+### Windows
 　`webui-user.bat`にコマンドライン変数を追加することでモデルのディレクトリなどを指定できます。
 ```
 set COMMANDLINE_ARGS=--models-dir X:\StabilityMatrix\Models --branch dev
+```
+
+### Linux / macOS
+　`webui-user.sh`にコマンドライン変数を追加することでモデルのディレクトリなどを指定できます。
+```bash
+COMMANDLINE_ARGS="--models-dir /path/to/models --branch dev"
+```
+
+　または、スクリプト実行時に直接引数を渡すこともできます：
+```bash
+./webui-user.sh --server-name=0.0.0.0 --server-port=7860 --models-dir /path/to/models
 ```
 　以下はコマンドライン変数です。
 
@@ -136,7 +180,7 @@ venv\Scripts\activate
 
 **Linux / macOS (bash の場合):**
 ```bash
-source G:/StabilityMatrix/Models/venv/bin/activate
+source ./venv/bin/activate
 ```
 
 ### ** `train_j.py` を実行**
@@ -157,3 +201,4 @@ python train_j.py test.json --models-dir X:\StabilityMatrix\Models
 
 ## 謝辞
 　本レポジトリは[Stable Diffusion WebUI Forge](https://github.com/lllyasviel/stable-diffusion-webui-forge)のコードを参考にしています。
+

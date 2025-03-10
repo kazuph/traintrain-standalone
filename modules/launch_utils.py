@@ -47,7 +47,7 @@ default_command_live = (os.environ.get('WEBUI_LAUNCH_LIVE_OUTPUT') == "1")
 os.environ.setdefault('GRADIO_ANALYTICS_ENABLED', 'False')
 
 def print_error_explanation(message):
-    
+
     lines = message.strip().split("\n")
     max_len = max([len(x) for x in lines])
 
@@ -237,7 +237,7 @@ def prepare_environment():
 
     if args.use_ipex:
         args.skip_torch_cuda_test = True
-        
+
     if not args.skip_torch_cuda_test and not check_run_python("import torch; assert torch.cuda.is_available()"):
         raise RuntimeError(
             'Your device does not support the current version of Torch/CUDA! Consider download another version: \n'
@@ -245,7 +245,7 @@ def prepare_environment():
             # 'Torch is not able to use GPU; '
             # 'add --skip-torch-cuda-test to COMMANDLINE_ARGS variable to disable this check'
         )
-        
+
     if not is_installed("clip"):
         run_pip(f"install {clip_package}", "clip")
 
@@ -257,7 +257,7 @@ def prepare_environment():
 
     if not is_installed("ngrok") and args.ngrok:
         run_pip("install ngrok", "ngrok")
-        
+
     git_clone(tt_repo, os.path.join(script_path, "traintrain"), "traintrain", tt_branch)
 
     if not os.path.isfile(requirements_file):
@@ -268,7 +268,7 @@ def prepare_environment():
 def start():
     print(f"Launching {'API server' if '--nowebui' in sys.argv else 'Web UI'} with arguments: {shlex.join(sys.argv[1:])}")
     import traintrain.scripts.traintrain as traintrain
-    traintrain.launch()
+    traintrain.launch(sys.argv[1:])
     return
 
 def dump_sysinfo():
