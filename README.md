@@ -45,8 +45,15 @@ COMMANDLINE_ARGS="--models-dir /path/to/models --branch dev"
 
 Alternatively, you can pass arguments directly when running the script:
 ```bash
-./webui-user.sh --server-name=0.0.0.0 --server-port=7860 --models-dir /path/to/models
+./webui-user.sh --models-dir /path/to/models
 ```
+
+If you need to expose the web interface to other devices on your network, you can set the GRADIO_SERVER_NAME environment variable:
+```bash
+GRADIO_SERVER_NAME=0.0.0.0 ./webui-user.sh
+```
+This makes the web interface accessible from other devices on your network.
+
 ### Command-line Variables
 
 | Variable | Description |
@@ -143,8 +150,15 @@ COMMANDLINE_ARGS="--models-dir /path/to/models --branch dev"
 
 　または、スクリプト実行時に直接引数を渡すこともできます：
 ```bash
-./webui-user.sh --server-name=0.0.0.0 --server-port=7860 --models-dir /path/to/models
+./webui-user.sh --models-dir /path/to/models
 ```
+
+ネットワーク上の他のデバイスからWebインターフェースにアクセスする必要がある場合は、GRADIO_SERVER_NAME環境変数を設定できます：
+```bash
+GRADIO_SERVER_NAME=0.0.0.0 ./webui-user.sh
+```
+これにより、ネットワーク上の他のデバイスからWebインターフェースにアクセスできるようになります。
+
 　以下はコマンドライン変数です。
 
 | 変数                          | 説明 |
