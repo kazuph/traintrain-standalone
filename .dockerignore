@@ -1,0 +1,44 @@
+# Git関連
+.git
+.gitignore
+
+# Python関連
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.pytest_cache/
+.coverage
+htmlcov/
+
+# 環境ディレクトリ
+.env
+.venv/
+venv/
+ENV/
+
+# システム関連
+.DS_Store
+Thumbs.db
+
+# 開発ディレクトリ
+/tmp
+/outputs
+/output
+/inputs/samples
+
+# ビルドとテスト関連
+*.log
+.idea/
+.vscode/
+
+# Dockerファイル自体
+Dockerfile
+compose.yml
+.dockerignore
+
+# その他の不要なファイル
+README.md
+LICENSE
+*.md

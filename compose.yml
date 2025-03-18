@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  traintrain:
+    build: .
+    container_name: traintrain-webui
+    ports:
+      - "7861:7861"
+    volumes:
+      - ./models:/app/models
+      - ./outputs:/app/outputs
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    environment:
+      - PYTHONUNBUFFERED=1
+      - GRADIO_SERVER_NAME=0.0.0.0
+      - GRADIO_SERVER_PORT=7861
+    restart: unless-stopped
+    shm_size: 8gb
+    command: >
+      bash webui-user.sh
+      --models-dir /app/models
+      --ckpt-dir /app/models
+      --vae-dir /app/models
+      --lora-dir /app/outputs
+      --xformers
+      --listen
