@@ -175,6 +175,7 @@ def git_clone(url, dir, name, commithash=None):
         run_git(dir, name, 'fetch', f"Fetching updates for {name}...", f"Couldn't fetch {name}", autofix=False)
 
         run_git(dir, name, f'checkout {commithash}', f"Checking out commit for {name} with hash: {commithash}...", f"Couldn't checkout commit {commithash} for {name}", live=True)
+        print(run_git(dir, name, "log -1 --format='%H %cd'", None, f"Couldn't retrieve commit info for {name}", live=True).strip())
 
         return
 
