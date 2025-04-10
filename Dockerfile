@@ -50,6 +50,7 @@ RUN pip install --no-cache-dir accelerate transformers diffusers
 # TrainTrainの依存関係
 RUN pip install --no-cache-dir https://github.com/openai/CLIP/archive/d50d76daa670286dd6cacf3bcd80b5e4823fc8e1.zip
 RUN pip install --no-cache-dir https://github.com/mlfoundations/open_clip/archive/bb6e834e9c70d9c27d0dc3ecedeebeaeb1ffad6b.zip
+RUN pip install --no-cache-dir pytorch-optimizer==3.5.0
 
 # プロジェクトファイルをコピー
 COPY . /app/
